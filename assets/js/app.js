@@ -104,6 +104,51 @@ gsap.to(".badgeOff", {
   duration: 1,
   ease: "power3.out"
 });
+
+window.addEventListener('load', function () {
+  var divs = document.querySelectorAll('.clipPathinit');
+  var lastDiv = divs[divs.length - 1];
+  if (lastDiv.classList.contains('opacero')) {
+    lastDiv.classList.remove('opacero');
+  }
+  setTimeout(function () {
+    divs.forEach(function (div) {
+      div.classList.remove('clipPathinit');
+    });
+  }, 2000);
+});
+
+
+// Obtener todos los elementos con la clase "heroItem"
+var heroItems = document.querySelectorAll('.heroItem');
+
+// Crear un objeto para almacenar los datos
+var data = {
+  cantidad_total_items: heroItems.length,
+  items: []
+};
+
+// Iterar sobre cada elemento "heroItem" para obtener sus datos
+heroItems.forEach(function (item) {
+  var title = item.querySelector('h1').innerHTML; // Utilizamos innerHTML en lugar de innerText
+  var text = item.querySelector('p').innerText;
+  var link = {
+    href: item.querySelector('a').getAttribute('href'),
+    text: item.querySelector('a').innerText
+  };
+  var imagen = {
+    src: item.querySelector('.heroImg img').getAttribute('src'),
+    alt: item.querySelector('.heroImg img').getAttribute('alt')
+  };
+
+  // Agregar los datos del elemento actual al arreglo "items" del objeto "data"
+  data.items.push({
+    title: title,
+    text: text,
+    link: link,
+    imagen: imagen
+  });
+});
 // Mostrar los datos en la consola (opcional)
 console.log(data);
 
