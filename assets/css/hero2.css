@@ -1,170 +1,215 @@
-
 /* FONT */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
 
 /* VARIABLES */
 :root {
-    --color01:#6400CD;
-    --color02:#8AF5E9;
-    --color03:#322F6E;
-    --font01:'Montserrat', sans-serif;
+    --color01: #6400CD;
+    --color02: #8AF5E9;
+    --color03: #322F6E;
+    --font01: 'Montserrat', sans-serif;
 }
 
 /* RESET */
 * {
     min-width: 0;
     font: inherit;
-    }
-    
-    *,*::before,*::after {
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    }
-    
-    img,video,svg {
+}
+
+img,
+video,
+svg {
     display: block;
     height: auto;
     max-width: 100%;
-    }
-    
-    body {
+}
+
+body {
     margin: 0;
     min-height: 100dvh;
-    }
-    
-    h1,h2.h3,h4,h5,h6 {text-wrap: balance;}
-    
-    p {text-wrap: pretty;}
-    
-    ul[role='list'], ol[role='list']{
-        list-style: none; /* Turn off numbered and unordered list decoration */
-    }
-    
-    html:focus-within{
-        scroll-behavior: smooth; /* Make the scrolling inside of any scrollable element smooth */
-    }
-    
-    a:not([class]){
-        text-decoration-skip-ink: auto; /* Makes link undelines look better */
-    }
-    
-    input, button, textarea, select{
-        font: inherit; /* Makes these elements inherit fonts */
-    }
-    
-    /* Turns off animation for people who don't want to see them */
-    @media (prefers-reduced-motion: reduce){
-        html:focus-within {
-            scroll-behavior: auto;
-        }
-        *, *::before, *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-            scroll-behavior: auto !important;
-            transition: none;
-        }
-    }
-    
-    body, html{
-        height: auto; /* 100% Makes the body element full screen */
-        scroll-behavior: smooth; /* Makes normal scrolling smooth */
+}
+
+h1,
+h2.h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+    /* Turn off numbered and unordered list decoration */
+}
+
+html:focus-within {
+    scroll-behavior: smooth;
+    /* Make the scrolling inside of any scrollable element smooth */
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    /* Makes link undelines look better */
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    /* Makes these elements inherit fonts */
+}
+
+/* Turns off animation for people who don't want to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
     }
 
-    /* APP */
-    body {background-image: linear-gradient(var(--color01), #000);}
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: none;
+    }
+}
 
-    header {
-        padding: 30px 50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+body,
+html {
+    height: auto;
+    /* 100% Makes the body element full screen */
+    scroll-behavior: smooth;
+    /* Makes normal scrolling smooth */
+}
 
-    header .logo img {height: 50px;}
+/* APP */
+body {
+    background-image: linear-gradient(var(--color01), #000);
+    height: 100vh;
+    overflow: hidden;
+}
 
-    header .menu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-    }
-    header .menu a {
-        color: #fff;
-        font-family: var(--font01);
-        text-decoration: none;
-        border-bottom: 2px solid var(--color01);
-    }
+header {
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    header .menu a:hover {
-        border-bottom: 2px solid #fff;
-    }
 
-    header .menu a,
-    header .menu a:hover {transition: ease all 250ms;} 
+header .logo img {
+    height: 50px;
+}
 
-    .heroMain {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        z-index: 1;
-    }
-    .heroMain .heroTxt {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 15px;
-        flex-direction: column;
-        padding-left: 50px;
-        font-family: var(--font01);
-        
-        color: #fff;
-    }
+header .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
 
-    .heroTxt > * {
-        opacity: 0;
-        -moz-transition: ease all 500ms;
-        transition: ease all 500ms;
-    }
+header .menu a {
+    color: #fff;
+    font-family: var(--font01);
+    text-decoration: none;
+    border-bottom: 2px solid var(--color01);
+}
 
-    .heroTxt h1 {
-        font-size: 50px;
-        font-weight: bold;        
-        line-height: 1;
-        text-transform: uppercase;
-        margin: 0px;
-        padding: 0px;
-    }
-    .heroTxt span {
-        font-weight: 400;
-        display: block;
-    }
-    .btnHero {
-        color: #000;
-        text-decoration: none;
-        background: var(--color02);
-        padding: 10px 15px;
-        border-radius: 25px;
-        font-weight: bold;
-    }
-    .heroImg {
-        position: relative;
-        background: var(--color03);
-        clip-path: polygon(16% 0, 100% 0%, 100% 100%, 0% 100%);
-        overflow: hidden;
-        height: calc(100vh - 200px);
-    }
-    .heroImg img {
-        position: absolute;
-        width: 100%;
-        height: auto;
-        clip-path: polygon(16% 0, 100% 0%, 100% 100%, 0% 100%);
-        top: 0px;
-        left: 15px;
-    }
+header .menu a:hover {
+    border-bottom: 2px solid #fff;
+}
 
-/* decorative elements */
-body {height: 100vh;overflow: hidden;}
-.heroTxt p {width: 84%;}
+header .menu a,
+header .menu a:hover {
+    transition: ease all 250ms;
+}
+
+.heroMain {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 1;
+}
+
+.heroMain .heroTxt {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    flex-direction: column;
+    padding-left: 50px;
+    font-family: var(--font01);
+
+    color: #fff;
+}
+
+.heroTxt>* {
+    opacity: 0;
+    -moz-transition: ease all 500ms;
+    transition: ease all 500ms;
+}
+
+
+.heroTxt h1 {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0px;
+    padding: 0px;
+}
+
+.heroTxt p {
+    width: 84%;
+}
+
+.heroTxt span {
+    font-weight: 400;
+    display: block;
+}
+
+.btnHero {
+    color: #000;
+    text-decoration: none;
+    background: var(--color02);
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.heroImg {
+    position: relative;
+    background: var(--color03);
+    clip-path: polygon(16% 0, 100% 0%, 100% 100%, 0% 100%);
+    overflow: hidden;
+    height: calc(100vh - 200px);
+}
+
+.heroImg img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    clip-path: polygon(16% 0, 100% 0%, 100% 100%, 0% 100%);
+    top: 0px;
+    left: 15px;
+    transition: cubic-bezier(1, 0, 0, 1) all 500ms;
+
+
+}
+
 .decorative {
     position: absolute;
     width: 100%;
@@ -172,20 +217,21 @@ body {height: 100vh;overflow: hidden;}
     top: 0px;
     left: 0px;
     z-index: -1;
-    
 }
 
 .deco {
     position: absolute;
-    opacity: 0;
+
     transition: ease all 250ms;
     transform: translateY(-10px);
 }
+
 .cylinder {
     width: 80px;
     top: 150px;
     left: calc(50% - 80px);
 }
+
 .blob01 {
     width: auto;
     height: 600px;
@@ -193,42 +239,44 @@ body {height: 100vh;overflow: hidden;}
     left: -180px;
     z-index: -1;
 }
+
 .blob02 {
     width: auto;
     height: 800px;
     bottom: -600px;
     left: -180px;
     z-index: -1;
-    
 }
+
 .circle01 {
-    width: auto;
     width: 300px;
     left: 200px;
     bottom: -90px;
     z-index: -1;
-    
 }
+
 .circle02 {
     width: auto;
     height: 700px;
-    bottom: -500px;
     right: -100px;
+    bottom: -500px;
     z-index: -1;
-    
 }
+
 .iconplay01 {
     width: 50px;
     left: 190px;
     bottom: 52px;
     z-index: -1;
 }
+
 .iconplay02 {
     width: 50px;
     left: 210px;
     bottom: 50px;
     z-index: -1;
 }
+
 .midcircle {
     width: 75px;
     left: 470px;
@@ -241,14 +289,15 @@ body {height: 100vh;overflow: hidden;}
     top: 20px;
     left: 450px;
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 2.5rem;
 }
+
 .gridCircle span {
     background: #000;
-    width: 10px;    
-    height: 10px;  
-    border-radius: 25px;  
+    width: 10px;
+    height: 10px;
+    border-radius: 25px;
 }
 
 .lineRotate {
@@ -256,26 +305,25 @@ body {height: 100vh;overflow: hidden;}
     top: 320px;
     left: -80px;
     width: 500px;
-    height: 3px;
     background: #4e00a0;
     transform: translateY(0px) rotate(160deg);
-    opacity: .7;
+    border: 1px solid #4e00a0;
+    ;
 }
 
 .blunt {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
+    top: 0px;
+    left: 0px;
+    width: 40%;
     height: 100%;
 }
+
 .blunt .children {
     position: absolute;
     width: 10px;
     height: 10px;
-    background: yellow;    
-   
-    
+    background: yellow;
 }
 
 footer {
@@ -286,21 +334,23 @@ footer {
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
-    padding: 1.7rem 1.7rem; 
-    
+    padding: 1.7rem 1.7rem;
 }
-footer img {width: 30px; height: 30px;}
+
+footer img {
+    width: 30px;
+    height: 30px;
+}
 
 .badgeOff {
-    opacity: 0;
     width: 150px;
     height: 150px;
-    background: var(--color02);
-    color: #010101;
+    background-color: var(--color02);
+    color: var(--color03);
     position: absolute;
     top: 55%;
     left: calc(50% - 45px);
-    z-index:4;
+    z-index: 4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -311,4 +361,211 @@ footer img {width: 30px; height: 30px;}
     font-weight: bold;
     line-height: 1;
     border-radius: 100%;
+}
+
+
+/*news*/
+.opacero {
+    opacity: 0 !important;
+    transition: ease all 250ms;
+}
+
+.heroItem {
+    position: absolute;
+    left: 0;
+}
+
+.heroImg img.clipPathinit {
+    clip-path: polygon(100% 0px, 100% 0%, 100% 100%, 100% 100%);
+    transition: cubic-bezier(0.65, 0.05, 0.36, 1) all 500ms;
+}
+
+.controls {
+    position: fixed;
+    z-index: 9;
+}
+
+
+.navIcon {
+    position: relative;
+    width: 45px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(0deg);
+    cursor: pointer;
+    transition: .25s ease-in-out;
+    display: none;
+}
+
+.navIcon span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.navIcon span:nth-child(1) {
+    top: 0px
+}
+
+.navIcon span:nth-child(2) {
+    top: 10px
+}
+
+.navIcon span:nth-child(3) {
+    top: 20px
+}
+
+.navIcon.open span:nth-child(1) {
+    top: 10px;
+    transform: rotate(135deg);
+}
+
+.navIcon.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+.navIcon.open span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-135deg);
+}
+
+
+
+/* RESPONSIVE CSS ELEMENTS */
+@media(max-width: 1024px) {
+    header {
+        padding: 0px;
+    }
+
+    .navIcon {
+        display: block;
+        z-index: 6;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    header .logo {
+        z-index: 6;
+    }
+
+    header .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        z-index: 5;
+        flex-direction: column;
+        font-size: 30px;
+        opacity: 0;
+        visibility: hidden;
+        transition: .25s ease-in-out;
+    }
+
+    header .menu a {
+        opacity: 0;
+        transition: .25s ease-in-out;
+    }
+
+    .menu.showMenu {
+        opacity: 1;
+        visibility: visible;
+        transition: .25s ease-in-out;
+    }
+
+    header .menu.showMenu a {
+        transition: translateX(-5px);
+        transition: .25s ease-in-out;
+        animation: showMenuItems 0.5s ease-in-out forwards;
+    }
+
+    header .menu.showMenu a:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    header .menu.showMenu a:nth-child(2) {
+        animation-delay: 0.25s;
+    }
+
+    header .menu.showMenu a:nth-child(3) {
+        animation-delay: 0.5s;
+    }
+
+    header .menu.showMenu a:nth-child(4) {
+        animation-delay: 0.75s;
+    }
+
+
+
+    @keyframes showMenuItems {
+        0% {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+
+    .heroMain {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .heroMain .heroImg {
+        height: 236px;
+    }
+
+    .heroMain .heroImg,
+    .heroMain .heroImg img {
+        clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0% 100%);
+        background: none;
+    }
+
+    .heroMain .heroImg img {
+        left: 0px;
+    }
+
+    .heroMain .heroTxt {
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .heroMain .heroTxt h1 {
+        font-size: 25px;
+        left: 0;
+        width: 100%;
+    }
+
+    .heroMain .heroTxt p {
+        font-size: 15px;
+        left: 0;
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .badgeOff {
+        width: 100px;
+        height: 100px;
+        top: 250px;
+        left: auto;
+        right: 15px;
+        font-size: 30px;
+
+    }
 }
