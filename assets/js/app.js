@@ -76,18 +76,11 @@ window.addEventListener('load', function () {
     });
   }, 2000);
 });
-
-
-// Obtener todos los elementos con la clase "heroItem"
 var heroItems = document.querySelectorAll('.heroItem');
-
-// Crear un objeto para almacenar los datos
 var data = {
   cantidad_total_items: heroItems.length,
   items: []
 };
-
-// Iterar sobre cada elemento "heroItem" para obtener sus datos
 heroItems.forEach(function (item) {
   var title = item.querySelector('h1').innerHTML; // Utilizamos innerHTML en lugar de innerText
   var text = item.querySelector('p').innerText;
@@ -100,7 +93,6 @@ heroItems.forEach(function (item) {
     alt: item.querySelector('.heroImg img').getAttribute('alt')
   };
 
-  // Agregar los datos del elemento actual al arreglo "items" del objeto "data"
   data.items.push({
     title: title,
     text: text,
@@ -108,7 +100,6 @@ heroItems.forEach(function (item) {
     imagen: imagen
   });
 });
-// Mostrar los datos en la consola (opcional)
 console.log(data);
 
 const navIcon = document.querySelector('.navIcon');
