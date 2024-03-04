@@ -104,3 +104,13 @@ gsap.to(".badgeOff", {
   duration: 1,
   ease: "power3.out"
 });
+// Mostrar los datos en la consola (opcional)
+console.log(data);
+
+const navIcon = document.querySelector('.navIcon');
+const hMenu = document.querySelector('.menu');
+
+navIcon.addEventListener('click', () => {
+  navIcon.classList.toggle('open');
+  hMenu.classList.toggle('showMenu');
+});
